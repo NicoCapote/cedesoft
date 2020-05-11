@@ -1,0 +1,167 @@
+*
+{
+    font-family: sans-serif; 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;    
+}
+
+.wrapper
+{
+    display: flex;
+    position: relative;
+}
+
+.wrapper .sidebar 
+{
+    position: fixed;
+    width: 200px;
+    height: 100%;
+    background: rgb(2,185,117);
+    padding: 30px 0;
+    border-right: 2px solid black;
+}
+
+.wrapper .sidebar h2,h3 
+{
+    color: white;
+    font-weight: bold;
+    font-size: 27px;
+    text-align: center;
+}
+
+.wrapper .sidebar h3 
+{
+    border-bottom: 2px solid black;
+}
+
+.wrapper .sidebar ul li
+{
+    padding: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+
+.wrapper .sidebar ul li a
+{
+    font-size: 20px;
+    color: black;
+    display: block;
+}
+
+.wrapper .sidebar ul li a .fas
+{
+    width: 25px;
+}
+
+.wrapper .sidebar ul li:hover
+{
+    background: rgb(6, 224, 144);
+}
+
+.wrapper .sidebar ul li:hover a
+{
+    color: white;
+}
+
+#eliminar
+{
+    margin-left: 10px;
+}
+
+#buscador
+{
+    width: 10cm;
+}
+
+#tabla
+{
+    width: 111%;
+    
+}
+
+
+.overlay
+{
+    background: rgba(0,0,0,.3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+
+.overlay.active
+{
+    visibility: visible;
+}
+
+.popup
+{
+    background: white;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,.3);
+    border-radius: 30px;
+    font-family: sans-serif;
+    padding: 20px;
+    text-align: center;
+    width: 1000px;
+    height: 650px;
+
+    transition: .3s ease all;
+    transform: scale(0.7);
+    opacity: 0;
+}
+
+.popup.active 
+{
+    opacity: 1;
+    transform: scale(1);
+}
+
+.overlay2
+{
+    background: rgba(0,0,0,.3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+
+.overlay2.active
+{
+    visibility: visible;
+}
+
+.popup2
+{
+    background: white;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,.3);
+    border-radius: 30px;
+    font-family: sans-serif;
+    padding: 20px;
+    text-align: center;
+    width: 1000px;
+    height: 600px;
+
+    transition: .3s ease all;
+    transform: scale(0.7);
+    opacity: 0;
+}
+
+.popup2.active 
+{
+    opacity: 1;
+    transform: scale(1);
+}
