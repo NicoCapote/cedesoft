@@ -14,6 +14,10 @@
                     <input type="text" class="form-control" id="nom_proveedor" name="nom_proveedor">
                 </div>
                 <div class="form-group">
+                    <label for="nombre">NIT</label>
+                    <input type="text" class="form-control" id="no_nit" name="nom_proveedor">
+                </div>
+                <div class="form-group">
                     <label for="descripcion">Descripcion</label>
                     <input type="text" class="form-control" id="desc_proveedor" name="desc_proveedor">
                 </div>
@@ -34,10 +38,14 @@
 		$("#f-proveedor").validate({
 			rules: {
                 nom_proveedor: "required" ,
+                no_nit: "required" ,
                 id_contrato: "required",
   			},
 			messages:{
 				nom_proveedor: {
+					required: "obligatorio"
+                },
+                no_nit: {
 					required: "obligatorio"
                 },
                 id_contrato: {

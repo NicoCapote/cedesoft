@@ -8,7 +8,7 @@
 	class sucursal extends Modelo
 	{
 
-		private $id_sucursal;
+		private $id;
         private $id_empresa;
         private $id_ciudad;
         private $sucursal;
@@ -23,7 +23,7 @@
 		 */ 
 		public function getId()
 		{
-				return $this->id_sucursal;
+				return $this->id;
         }
         /**
          * Get the value of id_empresa
@@ -50,15 +50,15 @@
         }
         
 
-		public function consultar($id_sucursal='')
+		public function consultar($id='')
 		{
-			if ($id_sucursal != '') {
+			if ($id != '') {
 
 				$this->query = "
-				SELECT id_sucursal AS id, id_empresa, id_ciudad,nombre
+				SELECT id AS id, id_empresa, id_ciudad,nombre
 				FROM sucursal
-				WHERE id_sucursal = '$id_sucursal'
-				ORDER BY id_sucursal
+				WHERE id = '$id'
+				ORDER BY id
 				";
 
 				$this->obtener_resultados_query();
@@ -75,9 +75,9 @@
 		public function listar()
 		{
 			$this->query = "
-			SELECT id_sucursal as id, nombre as sucursal
+			SELECT id as id, nombre as sucursal
 			FROM sucursal
-			ORDER BY id_sucursal
+			ORDER BY id
 			";
 
 			$this->obtener_resultados_query();

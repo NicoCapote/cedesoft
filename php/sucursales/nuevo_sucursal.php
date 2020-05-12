@@ -6,22 +6,16 @@
         <div class="card-body">
             <form id="f-sucursal">
                 <div class="form-group">
-                    <label for="nombre">Nombre</label>
+                    <label for="nombre">Empresa</label>
                     <input type="text" class="form-control" id="nom_proveedor" name="nom_proveedor">
                 </div>
                 <div class="form-group">
-                    <label for="nombre">NIT</label>
-                    <input type="text" class="form-control" id="no_nit" name="nom_proveedor">
-                </div>
-                <div class="form-group">
-                    <label for="descripcion">Descripcion</label>
+                    <label for="descripcion">Ciudad</label>
                     <input type="text" class="form-control" id="desc_proveedor" name="desc_proveedor">
                 </div>
                 <div class="form-group">
-                    <label for="id_contrato">Id_contrato</label>
-                    <select class="form-control" id="id_contrato" name="id_contrato">
-
-                    </select>
+                    <label for="id_contrato">Nombre Sucursal</label>
+                    <select class="form-control" id="id_contrato" name="id_contrato"></select>
                 </div>
                 
                 <hr>
@@ -35,14 +29,10 @@
 		$("#f-sucursal").validate({
 			rules: {
                 nom_proveedor: "required" ,
-                no_nit: "required" ,
                 id_contrato: "required",
   			},
 			messages:{
 				nom_proveedor: {
-					required: "obligatorio"
-                },
-                no_nit: {
 					required: "obligatorio"
                 },
                 usuid_contratoario: {

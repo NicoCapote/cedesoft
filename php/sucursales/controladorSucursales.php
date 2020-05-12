@@ -9,8 +9,8 @@
 	switch ($_GET['accion']) {
 		case 'editar':
 
-			$pais = new Pais();
-			$resultado = $pais->editar($datos);
+			$sucursal = new Sucursal();
+			$resultado = $sucursal->editar($datos);
 
 			if ($resultado > 0) {
 				$json = array(
@@ -28,8 +28,8 @@
 
 		case 'nuevo':
 
-			$pais = new Pais();
-			$resultado = $pais->crear($datos);
+			$sucursal = new Sucursal();
+			$resultado = $sucursal->crear($datos);
 
 			if ($resultado > 0) {
 				$json = array(
@@ -47,8 +47,8 @@
 
 		case 'borrar':
 
-			$pais = new Pais();
-			$resultado = $pais->eliminar($datos['id']);
+			$sucursal = new sucursal();
+			$resultado = $sucursal->eliminar($datos['id']);
 
 			if ($resultado > 0) {
 				$json = array(
@@ -66,19 +66,19 @@
 
 		case 'consultar':
 
-			$pais = new sucursal();
-			$pais->consultar($datos['id']);
+			$sucursal = new Sucursal();
+			$sucursal->consultar($datos['id']);
 
-			if ($pais->getId() == null) {
+			if ($sucursal->getId() == null) {
 				$json = array(
                 	'respuesta' => 'no existe'
             	);
 			} else {
 				$json = array(
-                    'id' => $pais->getId(),
-                    'id_empresa' => $pais->getId_Empresa(),
-                    'id_ciudad' => $pais->getId_Ciudad(),
-					'sucursal' => $pais->getSucursal(),
+                    'id' => $sucursal->getId(),
+                    'id_empresa' => $sucursal->getId_Empresa(),
+                    'id_ciudad' => $sucursal->getId_Ciudad(),
+					'sucursal' => $sucursal->getSucursal(),
                 	'respuesta' => 'existe'
             	);
 			}
