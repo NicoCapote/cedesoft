@@ -7,15 +7,15 @@
             <form id="f-sucursal">
                 <div class="form-group">
                     <label for="nombre">Empresa</label>
-                    <input type="text" class="form-control" id="nom_proveedor" name="nom_proveedor">
+                    <select class="form-control" name="id_empresa" id="id_empresa"></select>
                 </div>
                 <div class="form-group">
                     <label for="descripcion">Ciudad</label>
-                    <input type="text" class="form-control" id="desc_proveedor" name="desc_proveedor">
+                    <select class="form-control" name="id_ciudad" id="id_ciudad"></select>
                 </div>
                 <div class="form-group">
                     <label for="id_contrato">Nombre Sucursal</label>
-                    <select class="form-control" id="id_contrato" name="id_contrato"></select>
+                    <input type="text" class="form-control" id="sucursal" name="sucursal">
                 </div>
                 
                 <hr>
@@ -30,14 +30,18 @@
 			rules: {
                 nom_proveedor: "required" ,
                 id_contrato: "required",
+                id_sucursal: "required",
   			},
 			messages:{
 				nom_proveedor: {
 					required: "obligatorio"
                 },
-                usuid_contratoario: {
+                id_contrato: {
 					required: "obligatorio"
-				},
+                },
+                id_sucursal: {
+					required: "obligatorio"
+                },
 			},
 			submitHandler: function() {
 				agregar();

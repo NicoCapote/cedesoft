@@ -55,10 +55,9 @@
 			if ($id != '') {
 
 				$this->query = "
-				SELECT id AS id, id_empresa, id_ciudad,nombre
+				SELECT id_sucursal AS id, id_empresa, id_ciudad,nombre
 				FROM sucursal
-				WHERE id = '$id'
-				ORDER BY id
+				WHERE id_sucursal = '$id'
 				";
 
 				$this->obtener_resultados_query();
@@ -75,9 +74,11 @@
 		public function listar()
 		{
 			$this->query = "
-			SELECT id as id, nombre as sucursal
-			FROM sucursal
-			ORDER BY id
+			SELECT s.id_sucursal AS id, a.id_empresa AS id_empresa, 
+			b.id_ciudad AS id_ciudad, s.nombre AS sucursal
+			FROM sucursal as s
+			INNER JOIN empresa AS a on s.id_empresa=a.id_empresa
+			INNER JOIN ciudad AS b on s.id_ciudad=b.id_ciudad;		
 			";
 
 			$this->obtener_resultados_query();
@@ -94,46 +95,56 @@
 			/*if (array_key_exists('id', $datos)) {
 				
 			}*/
-			foreach ($datos as $clave => $valor) {
-				$$clave = $valor;
+			foreach ($datos as $llave => $valor) {
+				$$llave = $valor;
 			}
 
-			$pais = utf8_decode($pais);
+            $id_empresa =utf8_decode($id_empresa);
+            $id_ciudad = utf8_decode($id_ciudad);
+            $sucursal = utf8_decode($sucursal);
+
+			$opciones = [
+    			'cost' => 12,
+			];
 
 			$this->query = "
-			INSERT INTO country (country_id, country, last_update)
-			VALUES (NULL,'$pais',now())
-			";
+			INSERT INTO sucursal
+			VALUES (NULL,'$id_empresa','$id_ciudad','$pais','$sucursal')";
 
 			$resultado = $this->ejecutar_query_simple();
 
 			return $resultado;
-		}
+
+        }
 
 		public function editar($datos = array())
 		{
-			foreach ($datos as $clave => $valor) {
-				$$clave = $valor;
-			}
-
-			$pais = utf8_decode($pais);
+			foreach ($datos as $llave => $valor) {
+				$$llave = $valor;
+            }
+            
+            $id_empresa =utf8_decode($id_empresa);
+            $id_ciudad = utf8_decode($id_ciudad);
+            $sucursal = utf8_decode($sucursal);
 
 			$this->query = "
-			UPDATE country
-			SET country = '$pais', last_update = now() 
-			WHERE country_id = $id;
-			";
+			UPDATE sucursal
+            SET id_empresa='$id_empresa', id_ciudad=$id_ciudad,
+            nombre='$sucursal'
+            WHERE id_sucursal = '$id'
+            ";
 
 			$resultado = $this->ejecutar_query_simple();
 
 			return $resultado;
+
 		}
 
 		public function eliminar($id='')
 		{
 			$this->query = "
-			DELETE FROM country
-			WHERE country_id = $id
+			DELETE FROM sucursal
+			WHERE id_sucursal = $id
 			";
 
 			$resultado = $this->ejecutar_query_simple();

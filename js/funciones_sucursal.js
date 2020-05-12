@@ -24,7 +24,7 @@ function proveedor() {
                 var request = $.ajax({
 
                     method: 'get',
-                    url: './proveedores/controlador_proveedores.php',
+                    url: './sucursales/controladorSucursales.php',
                     data: {
                         id: id,
                         accion: 'borrar'
@@ -77,21 +77,23 @@ function proveedor() {
 
         $('#nuevo-editar').html('');
         $('#nuevo-editar').addClass('d-none');
-        $('#proveedor').removeClass('d-none');
+        $('#sucursal').removeClass('d-none');
 
     });
 
 
     $('#contenido').on('click', 'button#nuevo', function () {
 
-        $('#nuevo-editar').load('./proveedores/nuevo_proveedor.php');
+        $('#nuevo-editar').load('./sucursales/nuevo_sucursal.php');
         $('#nuevo-editar').removeClass('d-none');
-        $('#proveedor').addClass('d-none');
+        $('#sucursal').addClass('d-none');
+
+
 
         $.ajax({
 
             type: 'get',
-            url: './contratos/controladorContratos.php',
+            url: './empresas/controlador_empresas.php',
             data: { accion: 'listar' },
             dataType: 'json'
 
@@ -99,7 +101,24 @@ function proveedor() {
 
             $.each(e.data, function (index, value) {
 
-                $('#id_contrato').append('<option value="' + value.id + '">' + value.tipo_contra + "</option>")
+                $('#id_empresa').append('<option value="' + value.id + '">' + value.nombre_empresa + "</option>")
+
+            });
+
+        });
+
+        $.ajax({
+
+            type: 'get',
+            url: './gestiociudades/controlador_ciudades.php',
+            data: { accion: 'listar' },
+            dataType: 'json'
+
+        }).done(function (e) {
+
+            $.each(e.data, function (index, value) {
+
+                $('#id_ciudad').append('<option value="' + value.id + '">' + value.nom_ciudad + "</option>")
 
             });
 
@@ -110,14 +129,14 @@ function proveedor() {
     $('#contenido').on('click', 'a.editar', function () {
 
         var id = $(this).data('id');
-        $('#nuevo-editar').load('./proveedores/editar_proveedores.php');
+        $('#nuevo-editar').load('./sucursales/editar_sucursal.php');
         $('#nuevo-editar').removeClass('d-none');
         $('#proveedor').addClass('d-none');
 
         $.ajax({
 
             type: 'get',
-            url: './proveedores/controlador_proveedores.php',
+            url: './sucursales/controladorSucursales.php',
             data: {
                 id: id,
                 accion: 'consultar'
@@ -137,9 +156,9 @@ function proveedor() {
             } else {
 
                 $('#id').val(e.id);
-                $('#nom_proveedor').val(e.nom_proveedor);
-                $('#desc_proveedor').val(e.desc_proveedor);
-                contrato = e.contrato
+                $('#id_empresa').val(e.id_empresa);
+                $('#id_ciudad').val(e.id_ciudad);
+                $('#sucursal').val(e.sucursal);
 
             }
 
@@ -147,7 +166,7 @@ function proveedor() {
         $.ajax({
 
             type: 'get',
-            url: './contratos/controladorContratos.php',
+            url: './empresas/controlador_empresas.php',
             data: { accion: 'listar' },
             dataType: 'json'
 
@@ -157,11 +176,33 @@ function proveedor() {
 
                 if (contrato === value.id) {
 
-                    $('#id_contrato').append('<option selected value="' + value.id + '">' + value.tipo_contra + "</option>")
+                    $('#id_empresa').append('<option selected value="' + value.id + '">' + value.nombre_empresa + "</option>")
 
                 } else {
 
-                    $('#id_contrato').append('<option value="' + value.id + '">' + value.tipo_contra + "</option>")
+                    $('#id_empresa').append('<option value="' + value.id + '">' + value.nombre_empresa + "</option>")
+                }
+            });
+
+        });
+        $.ajax({
+
+            type: 'get',
+            url: './gestiociudades/controlador_ciudades.php',
+            data: { accion: 'listar' },
+            dataType: 'json'
+
+        }).done(function (e) {
+
+            $.each(e.data, function (index, value) {
+
+                if (contrato === value.id) {
+
+                    $('#id_ciudad').append('<option selected value="' + value.id + '">' + value.nom_ciudad + "</option>")
+
+                } else {
+
+                    $('#id_ciudad').append('<option value="' + value.id + '">' + value.nom_ciudad + "</option>")
                 }
             });
 
@@ -174,7 +215,7 @@ function agregar() {
     var datos = $('#f-proveedor').serialize();
     $.ajax({
         type: 'get',
-        url: './proveedores/controlador_proveedores.php?accion=nuevo',
+        url: './sucursales/controladorSucursales.php?accion=nuevo',
         data: datos,
         dataType: 'json'
 
@@ -208,11 +249,11 @@ function agregar() {
 }
 
 function actualizar() {
-    var datos = $('#f-proveedor').serialize(); //ESTE F.CIUDADES ES EL MISMO QUE SE LE PONE
+    var datos = $('#f-sucursal').serialize(); //ESTE F.CIUDADES ES EL MISMO QUE SE LE PONE
     $.ajax({                                //AL ID DEL FORMULARIO EN CREAR CIUDAD Y EDITAR CIUDAD
         //LO MISMO PARA LAS OTRAS LINEAS PARECIDAS
         type: 'get',
-        url: './proveedores/controlador_proveedores.php?accion=editar',
+        url: './sucursales/controladorSucursales.php?accion=editar',
         data: datos,
         dataType: 'json'
 
@@ -230,7 +271,7 @@ function actualizar() {
 
             $('#nuevo-editar').html('');
             $('#nuevo-editar').addClass('d-none');
-            $('#proveedor').removeClass('d-none'); //OBSERVE, ESTE #CIUDADES ES EL MISMO QUE 
+            $('#sucursal').removeClass('d-none'); //OBSERVE, ESTE #CIUDADES ES EL MISMO QUE 
             //SE LE PONE AL DIV DE INDEX.PHP AL PRINCIPIO
             //LO MISMO PARA LAS OTRAS LINEAS PARECIDAS
         } else {
@@ -257,12 +298,12 @@ $(document).ready(() => {
 
     dt = $('#tabla').DataTable({
 
-        'ajax': './proveedores/controlador_proveedores.php/?accion=listar',
+        'ajax': './sucursales/controladorSucursales.php/?accion=listar',
         'columns': [
             { 'data': 'id' },
-            { 'data': 'no_nit' },
-            { 'data': 'nom_proveedor' },
-            { 'data': 'desc_proveedor' },
+            { 'data': 'id_empresa' },
+            { 'data': 'id_ciudad' },
+            { 'data': 'sucursal' },
             {
                 'data': 'id',
                 render: function (data) {
