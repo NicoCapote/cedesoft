@@ -131,7 +131,7 @@ function proveedor() {
         var id = $(this).data('id');
         $('#nuevo-editar').load('./sucursales/editar_sucursal.php');
         $('#nuevo-editar').removeClass('d-none');
-        $('#proveedor').addClass('d-none');
+        $('#sucursal').addClass('d-none');
 
         $.ajax({
 
@@ -156,8 +156,8 @@ function proveedor() {
             } else {
 
                 $('#id').val(e.id);
-                $('#id_empresa').val(e.id_empresa);
-                $('#id_ciudad').val(e.id_ciudad);
+                id_empresa=e.id_empresa
+                id_ciudad=e.id_ciudad
                 $('#sucursal').val(e.sucursal);
 
             }
@@ -174,7 +174,7 @@ function proveedor() {
 
             $.each(e.data, function (index, value) {
 
-                if (contrato === value.id) {
+                if (id_empresa === value.id) {
 
                     $('#id_empresa').append('<option selected value="' + value.id + '">' + value.nombre_empresa + "</option>")
 
@@ -196,7 +196,7 @@ function proveedor() {
 
             $.each(e.data, function (index, value) {
 
-                if (contrato === value.id) {
+                if (id_ciudad === value.id) {
 
                     $('#id_ciudad').append('<option selected value="' + value.id + '">' + value.nom_ciudad + "</option>")
 
@@ -212,7 +212,7 @@ function proveedor() {
 }
 
 function agregar() {
-    var datos = $('#f-proveedor').serialize();
+    var datos = $('#f-sucursal').serialize();
     $.ajax({
         type: 'get',
         url: './sucursales/controladorSucursales.php?accion=nuevo',

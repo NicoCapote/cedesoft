@@ -104,7 +104,7 @@ require_once('../modelo.php');
 
 			$this->query = "
 			UPDATE procesos
-			SET nom_proceso='$nom_proceso' desc_proceso='$desc_proceso', 
+			SET nom_proceso='$nom_proceso', desc_proceso='$desc_proceso' 
             WHERE id_proceso = $id
 			";
 

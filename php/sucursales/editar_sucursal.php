@@ -48,7 +48,7 @@
                 },
 			},
 			submitHandler: function() {
-				agregar();
+				actualizar();
  			}
  		});
 	</script>
