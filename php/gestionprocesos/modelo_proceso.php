@@ -61,10 +61,9 @@ require_once('../modelo.php');
 		public function listar()
 		{
 			$this->query = "
-                        SELECT s.id_proceso AS id, s.nom_proceso AS nom_proceso, s.desc_proceso AS desc_proceso
-                        FROM procesos as s
-                        INNER JOIN contrato as a
-                        on s.id_proceso=a.id_proceso
+                        SELECT id_proceso AS id, s.nom_proceso AS nom_proceso, s.desc_proceso AS desc_proceso
+                        FROM procesos 
+                        
 			";
 
 			$this->obtener_resultados_query();
