@@ -61,10 +61,8 @@ require_once('../modelo.php');
 		public function listar()
 		{
 			$this->query = "
-                        SELECT id_proceso AS id, s.nom_proceso AS nom_proceso, s.desc_proceso AS desc_proceso
-                        FROM procesos 
-                        
-			";
+                        SELECT id_proceso AS id, s.nom_proceso AS nom_proceso, desc_proceso AS desc_proceso
+                        FROM procesos ";
 
 			$this->obtener_resultados_query();
 
