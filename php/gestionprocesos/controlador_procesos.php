@@ -67,7 +67,7 @@
 			$proceso = new Proceso();
 			$proceso->consultar($datos['id']);
 
-			if ($proveedor->getId_proveedor() == null) {
+			if ($proceso->getId_Proceso() == null) {
 				$json = array(
                 	'respuesta' => 'no existe'
             	);
