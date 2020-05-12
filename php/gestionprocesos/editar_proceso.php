@@ -1,10 +1,14 @@
 <div class="seccion-proceso">
     <div class="card border-primary">
         <div class="card-header bg-primary text-white">
-            NUEVO
+            EDITAR
         </div>
         <div class="card-body">
             <form id="f-proceso">
+                <div class="form-group">
+                    <label for="id">Id</label>
+                    <input type="text" class="form-control" id="id" name="id" readonly>
+                </div>
                 <div class="form-group">
                     <label for="nombre">Nombre</label>
                     <input type="text" class="form-control" id="nom_proceso" name="nom_proceso">
@@ -25,7 +29,7 @@
 		$("#f-proceso").validate({
 			rules: {
                 nom_proceso: "required" ,
-                desc_proceso: "required",
+                desc_proceso: "required" ,
   			},
 			messages:{
 				nom_proceso: {
@@ -33,10 +37,10 @@
                 },
                 desc_proceso: {
 					required: "obligatorio"
-				},
+                },
 			},
 			submitHandler: function() {
-				agregar();
+				actualizar();
  			}
  		});
 	</script>
