@@ -87,8 +87,8 @@
 
 		case 'listar':
 
-			$proveedor = new Proveedores();
-			$lista = $proveedor->listar();
+			$proceso = new Proceso();
+			$lista = $proceso->listar();
 
 			echo json_encode(array('data' => $lista), JSON_UNESCAPED_UNICODE);
 
