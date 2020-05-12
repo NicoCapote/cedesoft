@@ -2,7 +2,8 @@
 
 require_once('../modelo.php');
 	class Proveedores extends modelo {
-        private $id;
+		private $id;
+		private $no_nit; 
         private $nom_proveedor;
         private $desc_proveedor;
         private $id_contrato;
@@ -18,6 +19,14 @@ require_once('../modelo.php');
         public function getId_proveedor()
         {
                 return $this->id;
+		}
+		
+		/**
+         * Get the value of nit_proveedor
+         */ 
+        public function getNit()
+        {
+                return $this->no_nit;
         }
 
         /**
@@ -50,8 +59,8 @@ require_once('../modelo.php');
 			if ($id != '') {
 
 				$this->query = "
-                SELECT id_proveedor AS id, nom_proveedor AS nom_proveedor, desc_proveedor AS desc_proveedor,
-                id_contrato AS id_contrato
+				SELECT id_proveedor AS id, nit_proveedor AS no_nit nom_proveedor AS nom_proveedor, 
+				desc_proveedor AS desc_proveedor, id_contrato AS id_contrato
 				FROM proveedor WHERe id_proveedor='$id'
 				";
 
@@ -69,7 +78,7 @@ require_once('../modelo.php');
 		public function listar()
 		{
 			$this->query = "
-                        SELECT s.id_proveedor as id, s.nom_proveedor as nom_proveedor, 
+                        SELECT s.id_proveedor as id, s.nit_proveedor as no_nit, s.nom_proveedor as nom_proveedor, 
                         s.desc_proveedor AS desc_proveedor, a.id_contrato  as id_contrato
                         FROM proveedor as s
                         INNER JOIN contrato as a
@@ -90,6 +99,7 @@ require_once('../modelo.php');
 				$$llave = $valor;
 			}
 
+			$no_nit =utf8_decode($no_nit);
 			$nom_proveedor = utf8_decode($nom_proveedor);
 			$desc_proveedor = utf8_decode($desc_proveedor);
 			$id_contrato = utf8_decode($id_contrato);
@@ -98,7 +108,7 @@ require_once('../modelo.php');
 
 			$this->query = "
 			INSERT INTO proveedor
-			VALUES (NULL,'$nom_proveedor','$desc_proveedor','$id_contrato')";
+			VALUES (NULL,'$no_nit','$nom_proveedor','$desc_proveedor','$id_contrato')";
 
 			$resultado = $this->ejecutar_query_simple();
 
@@ -111,7 +121,8 @@ require_once('../modelo.php');
 			foreach ($datos as $llave => $valor) {
 				$$llave = $valor;
 			}
-
+			
+			$no_nit =utf8_decode($no_nit);
             $nom_proveedor = utf8_decode($nom_proveedor);
             $desc_proveedor = utf8_decode($desc_proveedor);
 			$id_contrato = utf8_decode($id_contrato);
@@ -120,7 +131,8 @@ require_once('../modelo.php');
 
 			$this->query = "
 			UPDATE proveedor
-            SET nom_proveedor='$nom_proveedor', desc_proveedor='$desc_proveedor', id_contrato='$id_contrato'
+			SET nit_proveedor='$no_nit' nom_proveedor='$nom_proveedor', desc_proveedor='$desc_proveedor', 
+			id_contrato='$id_contrato'
             WHERE id_proveedor = $id
 			";
 

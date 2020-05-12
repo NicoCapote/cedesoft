@@ -9,6 +9,7 @@
 		<thead>
 			<tr>
 				<th>Id_Proveedor</th>
+				<th>NIT</th>
 				<th>Nombre</th>
 				<th>Descripcion</th>
 				<th>Id_contrato</th>

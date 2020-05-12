@@ -1,4 +1,4 @@
-<?php include("../proyecto_romo/includes/index/header.php"); ?>
+<?php include("../cedesoft/includes/index/header.php"); ?>
 <!--NAVEGADOR SUPERIOR-->
 <!------------------------------------------------------------------------->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -33,13 +33,13 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="../proyecto_romo/img/01.jpeg" alt="First slide">
+                <img class="d-block w-100" src="../cedesoft/img/01.jpeg" alt="First slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="../proyecto_romo/img/02.jpeg" alt="Second slide">
+                <img class="d-block w-100" src="../cedesoft/img/02.jpeg" alt="Second slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="../proyecto_romo/img/03.jpeg" alt="Third slide">
+                <img class="d-block w-100" src="../cedesoft/img/03.jpeg" alt="Third slide">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -73,7 +73,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
-                            <a href="../proyecto_romo/php/administrar.php"><button type="button" class="btn btn-info">Administrar Contratos</button></a>
+                            <a href="../cedesoft/php/administrar.php"><button type="button" class="btn btn-info">Administrar Contratos</button></a>
                         </div>
                         <div class="col">
                             <button type="button" class="btn btn-info">Nuestra Historia</button>
@@ -138,4 +138,4 @@
     </nav>
 </footer>
 <!------------------------------------------------------------------------->
-<?php include("../proyecto_romo/includes/index/footer.php"); ?>
+<?php include("../cedesoft/includes/index/footer.php"); ?>

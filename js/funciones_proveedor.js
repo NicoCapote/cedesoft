@@ -260,6 +260,7 @@ $(document).ready(() => {
         'ajax': './proveedores/controlador_proveedores.php/?accion=listar',
         'columns': [
             { 'data': 'id' },
+            { 'data': 'no_nit' },
             { 'data': 'nom_proveedor' },
             { 'data': 'desc_proveedor' },
             { 'data': 'id_contrato' },
