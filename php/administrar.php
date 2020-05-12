@@ -98,6 +98,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
                     <li><a href="../php/gestionpaises/index.php"><i class="fas fa-users"></i>Pais</a></li>
                     <li><a href="../php/gestiociudades/index.php"><i class="fas fa-users"></i>Ciudad</a></li>
                     <li><a href="../php/proveedores/index.php"><i class="fas fa-users"></i>Proveedor</a></li>
+                    <li><a href="../php/gestionprocesos/index.php"><i class="fas fa-users"></i>Procesos</a></li>
                 </ul>
             </div>
         </div>
