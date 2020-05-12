@@ -73,8 +73,8 @@ class sucursal extends Modelo
 	public function listar()
 	{
 		$this->query = "
-			SELECT s.id_sucursal AS id, a.id_empresa AS id_empresa, 
-			b.id_ciudad AS id_ciudad, s.nombre AS sucursal
+			SELECT s.id_sucursal AS id, a.nom_empresa AS id_empresa, 
+			b.nom_ciudad AS id_ciudad, s.nombre AS sucursal
 			FROM sucursal as s
 			INNER JOIN empresa AS a on s.id_empresa=a.id_empresa
 			INNER JOIN ciudad AS b on s.id_ciudad=b.id_ciudad;		

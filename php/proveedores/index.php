@@ -12,7 +12,7 @@
 				<th>NIT</th>
 				<th>Nombre</th>
 				<th>Descripcion</th>
-				<th>Id_contrato</th>
+				<th>Referencia_de_contrato</th>
 				<th>Opciones</th>
 			</tr>
 		</thead>

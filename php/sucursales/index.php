@@ -11,7 +11,7 @@
 				<th>Id_Sucursal</th>
 				<th>Empresa</th>
 				<th>Ciudad</th>
-				<th>Nombre</th>
+				<th>Nombre_Sucursal</th>
 				<th>Opciones</th>
 			</tr>
 		</thead>
