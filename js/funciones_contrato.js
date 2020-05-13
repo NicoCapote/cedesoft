@@ -116,6 +116,40 @@ function contratos()
 
         });
 
+        $.ajax({
+
+            type: 'get',
+            url: './empresas/controlador_empresas.php',
+            data: { accion: 'listar' },
+            dataType: 'json'
+
+        }).done(function (e) {
+
+            $.each(e.data, function (index, value) {
+
+                $('#empresa_perteneciente').append('<option value="' + value.id + '">' + value.nombre_empresa + "</option>")
+
+            });
+
+        });
+
+        $.ajax({
+
+            type: 'get',
+            url: './gestionprocesos/controlador_procesos.php',
+            data: { accion: 'listar' },
+            dataType: 'json'
+
+        }).done(function (e) {
+
+            $.each(e.data, function (index, value) {
+
+                $('#proceso').append('<option value="' + value.id + '">' + value.nom_proceso + "</option>")
+
+            });
+
+        });
+
     });
         
     $('#contenido').on('click', 'a.editar', function () {
@@ -200,6 +234,29 @@ function contratos()
                 } else {
 
                     $('#empresa_perteneciente').append('<option value="' + value.id + '">' + value.nombre_empresa + "</option>")
+                }
+            });
+
+        });
+
+        $.ajax({
+
+            type: 'get',
+            url: './gestionprocesos/controlador_procesos.php',
+            data: { accion: 'listar' },
+            dataType: 'json'
+
+        }).done(function (e) {
+
+            $.each(e.data, function (index, value) {
+
+                if (sucursal === value.id) {
+
+                    $('#proceso').append('<option selected value="' + value.id + '">' + value.nom_proceso + "</option>")
+
+                } else {
+
+                    $('#proceso').append('<option value="' + value.id + '">' + value.nom_proceso + "</option>")
                 }
             });
 
@@ -297,6 +354,7 @@ $(document).ready(() => {
         'ajax': './contratos/controladorContratos.php/?accion=listar',
         'columns': [
             { 'data': 'id' },
+            { 'data': 'proceso' },
             { 'data': 'tipo_contra' },
             { 'data': 'empleado' },
             { 'data': 'empresa_perteneciente' },

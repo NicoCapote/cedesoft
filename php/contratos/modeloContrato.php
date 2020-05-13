@@ -2,8 +2,10 @@
 
 require_once('../modelo.php');
     class Contrato extends modelo {
+
         private $id;
-        private $tipo_contrato;
+        private $proceso;
+        private $tipo_contrato;        
         private $empleado_responsable;
         private $empresa_perteneciente;
         private $fecha_creacion;
@@ -17,6 +19,11 @@ require_once('../modelo.php');
         public function getId()//id_contrato
         {
             return $this->id;
+        }
+
+        public function getProceso()//id_contrato
+        {
+            return $this->proceso;
         }
 
         public function getTipo_contrato()//tipo_contrato
@@ -49,9 +56,9 @@ require_once('../modelo.php');
 			if ($id != '') {
 
 				$this->query = "
-                SELECT id_contrato AS id, tipo_contrato AS tipo_contrato, id_empleado AS empleado_responsable, 
+                SELECT id_contrato AS id, id_proceso AS proceso, tipo_contrato AS tipo_contrato, id_empleado AS empleado_responsable, 
                 id_empresa AS empresa_perteneciente, fecha_crear, fecha_fin 
-                FROM contrato Where id_contrato='$id'
+                FROM contrato WHERE id_contrato='$id'
 				";
 
 				$this->obtener_resultados_query();
@@ -84,7 +91,7 @@ require_once('../modelo.php');
 
 			$this->query = "
 			INSERT INTO contrato
-			VALUES (NULL,'$tipo_contrato','$empleado_responsable','$empresa_perteneciente','$fecha_creacion','$fecha_expiracion')";
+			VALUES (NULL,'$tipo_contrato','$proceso','$empleado_responsable','$empresa_perteneciente','$fecha_creacion','$fecha_expiracion')";
 
 			$resultado = $this->ejecutar_query_simple();
 
@@ -105,9 +112,9 @@ require_once('../modelo.php');
 
 			$this->query = "
 			UPDATE contrato
-            SET tipo_contrato='$tipo_contrato', id_empleado='$empleado_responsable',
-            id_empresa='$empresa_perteneciente', fecha_crear='$fecha_creacion',
-            fecha_fin='$fecha_expiracion'
+            SET tipo_contrato='$tipo_contrato', id_empleado='$proceso', 
+            id_empleado='$empleado_responsable', id_empresa='$empresa_perteneciente', 
+            fecha_crear='$fecha_creacion', fecha_fin='$fecha_expiracion'
             WHERE id_contrato = '$id'
 			";
 
@@ -131,12 +138,13 @@ require_once('../modelo.php');
         public function listar()
         {
             $this->query = "
-            SELECT s.id_contrato as id, s.tipo_contrato as tipo_contra,
+            SELECT s.id_contrato as id, c.nom_proceso as proceso, s.tipo_contrato as tipo_contra,
             a.nom_empleado as empleado, b.nom_empresa as empresa_perteneciente,
             s.fecha_crear as fecha_creacion, s.fecha_fin as fecha_expiracion
             FROM contrato as s
-            INNER JOIN empleado as a on s.id_empleado=a.id_empleado
-            INNER JOIN empresa  as b on s.id_empresa =b.id_empresa;
+            INNER JOIN empleado as a on s.id_empleado = a.id_empleado
+            INNER JOIN empresa  as b on s.id_empresa  = b.id_empresa
+            INNER JOIN procesos  as c on s.id_empresa  = c.id_proceso;
             ";
 
             $this->obtener_resultados_query();

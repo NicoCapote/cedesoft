@@ -10,18 +10,20 @@
                     <input type="text" class="form-control" id="id" name="id" readonly>
                 </div>
                 <div class="form-group">
+                    <label for="apellido">Nombre Proceso</label>
+                    <select class="form-control" name="proceso" id="proceso"></select>                    
+                </div>
+                <div class="form-group">
                     <label for="nombre">Tipo de Contrato</label>
                     <input type="text" class="form-control" id="tipo_contrato" name="tipo_contrato">
                 </div>
                 <div class="form-group">
                     <label for="apellido">Empleado Responsable</label>
-                    <select class="form-control" name="empleado_responsable" id="empleado_responsable">
-                    </select>
+                    <select class="form-control" name="empleado_responsable" id="empleado_responsable"></select>                    
                 </div>
                 <div class="form-group">
                     <label for="email">Empresa Perteneciente</label>
-                    <select class="form-control" name="empresa_perteneciente" id="empresa_perteneciente">
-                    </select>
+                    <select class="form-control" name="empresa_perteneciente" id="empresa_perteneciente"></select>                    
                 </div>
                 <div class="form-group">
                     <label for="usuario">Fecha de Creacion</label>
@@ -41,6 +43,7 @@
     <script>
 		$("#f-contrato").validate({
 			rules: {
+                proceso: "required" ,
                 tipo: "required" ,
                 empleado_responsable: "required",
                 empresa_perteneciente: "required",
@@ -48,6 +51,9 @@
                 fecha_expiracion: "required",
   			},
 			messages:{
+                proceso: {
+					required: "obligatorio"
+                },
 				tipo: {
 					required: "obligatorio"
                 },

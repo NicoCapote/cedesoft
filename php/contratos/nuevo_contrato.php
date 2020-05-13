@@ -6,6 +6,10 @@
         <div class="card-body">
             <form id="f-contrato">
                 <div class="form-group">
+                    <label for="apellido">Nombre Proceso</label>
+                    <select class="form-control" name="proceso" id="proceso"></select>                    
+                </div>
+                <div class="form-group">
                     <label for="nombre">Tipo de Contrato</label>
                     <input type="text" class="form-control" id="tipo_contrato" name="tipo_contrato">
                 </div>
@@ -37,6 +41,7 @@
     <script>
 		$("#f-contrato").validate({
 			rules: {
+                proceso: "required" ,
                 tipo: "required" ,
                 nom_empleado: "required",
                 nombre_empresa: "required",
@@ -44,6 +49,9 @@
                 fecha_expi: "required",
   			},
 			messages:{
+                proceso: {
+					required: "obligatorio"
+                },
 				tipo: {
 					required: "obligatorio"
                 },

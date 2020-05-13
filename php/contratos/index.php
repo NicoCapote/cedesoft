@@ -9,6 +9,7 @@
 		<thead>
 			<tr>
 				<th>Id_Contrato</th>
+				<th>Id_Proceso</th>
 				<th>Tipo_de_Contrato</th>
 				<th>Empleado_Resposable</th>
 				<th>Empresa_Perteneciente</th>
