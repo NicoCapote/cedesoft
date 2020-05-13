@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-05-2020 a las 00:54:49
--- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.3
+-- Tiempo de generación: 13-05-2020 a las 06:18:46
+-- Versión del servidor: 10.1.19-MariaDB
+-- Versión de PHP: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -50,6 +48,7 @@ INSERT INTO `ciudad` (`id_ciudad`, `nom_ciudad`, `id_pais`) VALUES
 
 CREATE TABLE `contrato` (
   `id_contrato` int(3) NOT NULL,
+  `id_proceso` int(10) NOT NULL,
   `tipo_contrato` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `id_empleado` int(11) NOT NULL,
   `id_empresa` int(11) NOT NULL,
@@ -61,13 +60,13 @@ CREATE TABLE `contrato` (
 -- Volcado de datos para la tabla `contrato`
 --
 
-INSERT INTO `contrato` (`id_contrato`, `tipo_contrato`, `id_empleado`, `id_empresa`, `fecha_crear`, `fecha_fin`) VALUES
-(1, 'contrato importacion', 2, 1, '2020-05-25 00:00:00', '2020-05-28 00:00:00'),
-(2, 'contrato provee. insumo', 2, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3, 'contrato de aprendiz', 2, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(19, 'contrato de convenios', 1, 2, '2020-05-13 00:00:00', '2021-05-26 00:00:00'),
-(33, 'hola', 2, 1, '2020-05-26 00:00:00', '2020-05-30 00:00:00'),
-(34, 'co?ooooooo', 2, 1, '2020-04-26 00:00:00', '2020-05-29 00:00:00');
+INSERT INTO `contrato` (`id_contrato`, `id_proceso`, `tipo_contrato`, `id_empleado`, `id_empresa`, `fecha_crear`, `fecha_fin`) VALUES
+(1, 1, 'contrato importacion', 2, 1, '2020-05-25 00:00:00', '2020-05-28 00:00:00'),
+(2, 2, 'contrato provee. insumo', 2, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3, 0, 'contrato de aprendiz', 2, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(19, 0, 'contrato de convenios', 1, 2, '2020-05-13 00:00:00', '2021-05-26 00:00:00'),
+(33, 0, 'hola', 2, 1, '2020-05-26 00:00:00', '2020-05-30 00:00:00'),
+(34, 0, 'co?ooooooo', 2, 1, '2020-04-26 00:00:00', '2020-05-29 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -154,7 +153,8 @@ CREATE TABLE `pais` (
 
 INSERT INTO `pais` (`id_pais`, `nom_pais`) VALUES
 (1, 'Colombia'),
-(2, 'Estados Unidos');
+(2, 'Estados Unidos'),
+(3, 'Panama');
 
 -- --------------------------------------------------------
 
@@ -174,7 +174,9 @@ CREATE TABLE `procesos` (
 
 INSERT INTO `procesos` (`id_proceso`, `nom_proceso`, `desc_proceso`) VALUES
 (1, 'venta', 'ventas se efectuaron con un total de cien por dia'),
-(2, 'surtido de insumos', 'se surtio en el dia de hoy, tres de marzo del dos mil veinte un total de docientos articulos de jugueteria');
+(2, 'surtido de insumos', 'se surtio en el dia de hoy, tres de marzo del dos mil veinte un total de docientos articulos de jugueteria'),
+(3, 'compra', 'se hizo la compra de 100 computadores'),
+(5, 'aa', 'departamento ');
 
 -- --------------------------------------------------------
 
@@ -217,7 +219,11 @@ CREATE TABLE `rol` (
 
 INSERT INTO `rol` (`id_rol`, `nom_rol`, `desc_rol`) VALUES
 (1, 'visitante', 'el visitante podra visualizar los servicios que ofrece nuestra aplicación web'),
-(2, 'admin', 'tiene permitido el acceso al sistema para gestiones del mismo');
+(2, 'admin', 'tiene permitido el acceso al sistema para gestiones del mismo'),
+(3, 'gestor_de_empresa', 'Gestionar sucursales, empleados y procesos'),
+(4, 'jefe_de_procesos', 'Un empleado puede ser j.procesos'),
+(5, 'empleado', 'la verdad no se que puede hacer'),
+(6, 'sucursales', 'la verdad no se que puede hacer');
 
 -- --------------------------------------------------------
 
@@ -260,8 +266,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `usuario`, `password`, `correo`, `id_rol`, `id_empleado`) VALUES
-(1, 'daniel', '1234', 'danie@gmail.com', 2, 1234),
-(2, 'nicole', '1234', 'dsadas@gmail.com', 1, 123436);
+(3, 'daniel', '1234', 'dani@gmail.com', 2, 1);
 
 --
 -- Índices para tablas volcadas
@@ -280,7 +285,8 @@ ALTER TABLE `ciudad`
 ALTER TABLE `contrato`
   ADD PRIMARY KEY (`id_contrato`),
   ADD KEY `id_empleado` (`id_empleado`),
-  ADD KEY `id_empresa` (`id_empresa`);
+  ADD KEY `id_empresa` (`id_empresa`),
+  ADD KEY `id_proceso` (`id_proceso`);
 
 --
 -- Indices de la tabla `contratoxproceso`
@@ -356,61 +362,51 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `ciudad`
   MODIFY `id_ciudad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
-
 --
 -- AUTO_INCREMENT de la tabla `contrato`
 --
 ALTER TABLE `contrato`
   MODIFY `id_contrato` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
-
 --
 -- AUTO_INCREMENT de la tabla `empleado`
 --
 ALTER TABLE `empleado`
   MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=979;
-
 --
 -- AUTO_INCREMENT de la tabla `empresa`
 --
 ALTER TABLE `empresa`
   MODIFY `id_empresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT de la tabla `pais`
 --
 ALTER TABLE `pais`
-  MODIFY `id_pais` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `id_pais` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `procesos`
 --
 ALTER TABLE `procesos`
-  MODIFY `id_proceso` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `id_proceso` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `proveedor`
 --
 ALTER TABLE `proveedor`
   MODIFY `id_proveedor` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT de la tabla `rol`
 --
 ALTER TABLE `rol`
-  MODIFY `id_rol` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `id_rol` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `sucursal`
 --
 ALTER TABLE `sucursal`
   MODIFY `id_sucursal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Restricciones para tablas volcadas
 --
@@ -459,7 +455,6 @@ ALTER TABLE `sucursal`
 --
 ALTER TABLE `usuario`
   ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`id_rol`) REFERENCES `rol` (`id_rol`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

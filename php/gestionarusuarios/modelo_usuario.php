@@ -67,11 +67,11 @@ require_once('../modelo.php');
 		public function listar()
 		{
 			$this->query = "
-            SELECT s.id_usuario as id, s.usuario as user, s.password as contraseña,
-            s.correo as correo, a.nom_rol as rol, b.nom_empleado as nom_empleado
-            FROM usuario as s
-            INNER JOIN rol as a	on s.id_rol = a.id_rol
-            INNER JOIN empleado as b on s.id_empleado = b.id_empleado;
+			SELECT s.id_usuario as id,s.usuario, s.password, s.correo,
+			r.nom_rol as rol, e.nom_empleado as empleado
+			FROM usuario as s
+			INNER JOIN rol as r on s.id_rol=r.id_rol
+			INNER JOIN empleado as e on s.id_empleado=e.id_empleado
 			";//EL NOMBRE QUE LE PONES ACA DEBE IR IGUAL EN LOS NOMBRES EN LA PARTE FINAL 
 			//DE FUNCIONES_CIUDADES
 
@@ -138,4 +138,3 @@ require_once('../modelo.php');
 			return $resultado;
 		}
 	}
-?>

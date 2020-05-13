@@ -298,11 +298,11 @@ $(document).ready(() => {
         'ajax': './gestionarusuarios/controlador_usuario.php/?accion=listar',
         'columns': [
             { 'data': 'id' },
-            { 'data': 'user' },
-            { 'data': 'contraseña' },
+            { 'data': 'usuario' },
+            { 'data': 'password' },
             { 'data': 'correo' },
             { 'data': 'rol' },
-            { 'data': 'nom_empleado' },
+            { 'data': 'empleado' },
             {
                 'data': 'id',
                 render: function (data) {
