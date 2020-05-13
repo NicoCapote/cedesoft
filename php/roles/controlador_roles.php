@@ -1,14 +1,14 @@
 <?php 
 
-	require_once './modelo_usuario.php';
+	require_once './modelo_roles.php';
 
 	$datos = $_GET;
 
 	switch ($_GET['accion']) {
 		case 'editar':
 
-			$usuario = new Usuario();
-			$resultado = $usuario->editar($datos);
+			$rol = new Roles();
+			$resultado = $rol->editar($datos);
 
 			if ($resultado == true || $resultado > 0) {
 				$json = array(
@@ -26,8 +26,8 @@
 
 		case 'nuevo':
 
-			$usuario = new Usuario();
-			$resultado = $usuario->crear($datos);
+			$rol = new Roles();
+			$resultado = $rol->crear($datos);
 
 			if ($resultado == true || $resultado > 0) {
 				$json = array(
@@ -45,8 +45,8 @@
 
 		case 'borrar':
 
-			$usuario = new Usuario();
-			$resultado = $usuario->eliminar($datos['id']);
+			$rol = new Roles();
+			$resultado = $rol->eliminar($datos['id']);
 
 			if ($resultado > 0) {
 				$json = array(
@@ -62,40 +62,35 @@
 
 			break;
 
-		case 'consultar':
+			case 'consultar':
 
-			$usuario = new Usuario();
-			$usuario->consultar($datos['id']);
-
-			if ($usuario->getId() == null) {
-				$json = array(
-                	'respuesta' => 'no existe'
-            	);
-			} else {
-				$json = array(
-					'id' => $usuario->getId(),
-					'user' => $usuario->getUser(),
-					'contraseña' => $usuario->getContraseña(),
-					'correo' => $usuario->getCorreo(),
-					'rol' => $usuario->getRol(),
-					'nom_empleado' => $usuario->getNom_empleado(),
-                	'respuesta' => 'existe'
-            	);
-			}
-
-			echo json_encode($json);
-			
-			break;
+				$rol = new Roles();
+				$rol->consultar($datos['id']);
+	
+				if ($rol->getId() == null) {
+					$json = array(
+						'respuesta' => 'no existe'
+					);
+				} else {
+					$json = array(
+						'id' => $rol->getId(),
+						'nom_rol' => $rol->getNom_rol(),
+						'descripcion' => $rol->getDescrip(),
+						'respuesta' => 'existe'
+					);
+				}
+	
+				echo json_encode($json);
+				
+				break;
 
 		case 'listar':
 
-			$usuario = new Usuario();
-			$lista = $usuario->listar();
+			$rol = new Roles();
+			$lista = $rol->listar();
 
 			echo json_encode(array('data' => $lista), JSON_UNESCAPED_UNICODE);
 
 			break;
 			
 	}
-
- ?>
