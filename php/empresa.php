@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
+if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'gestor_de_empresa') {
     header('location: ../index.php');
 }
 ?>
