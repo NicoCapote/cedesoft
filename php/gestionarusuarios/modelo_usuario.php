@@ -95,7 +95,7 @@ require_once('../modelo.php');
 			];
 
 			$this->query = "
-			INSERT INTO ciudad
+			INSERT INTO usuario
 			VALUES (NULL,'$user','$contraseña','$correo','$rol','$nom_empleado')";
 
 			$resultado = $this->ejecutar_query_simple();
