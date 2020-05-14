@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
+if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'jefe_de_procesos') {
     header('location: ../index.php');
 }
 ?>
@@ -91,8 +91,6 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
             <h5 class="card-header">Administracion de contratos</h5>
             <div class="card-body">
                 <ul id="opciones">
-                    <li><a href="../php/empleados/index.php"><i class="fas fa-user-tie"></i>Empleados</a></li>
-                    <li><a href="../php/sucursales/index.php"><i class="far fa-building"></i>Sucursal</a></li>
                     <li><a href="../php/gestionprocesos/index.php"><i class="fas fa-cogs"></i>Procesos</a></li>
                 </ul>
             </div>
@@ -101,7 +99,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
             <div class="jumbotron jumbotron-fluid" style="margin-top: 2rem">
                 <div class="container">
                     <h1 class="display-4">Bienvenido <?php echo $_SESSION['usuario'] ?></h1>
-                    <p class="lead">Espacio de trabajo para Gestor de Empresas</p>
+                    <p class="lead">Espacio de trabajo para Jefe de Proceso</p>
                 </div>
             </div>
         </div>
