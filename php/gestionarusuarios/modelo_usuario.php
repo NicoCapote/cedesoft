@@ -94,9 +94,11 @@ require_once('../modelo.php');
     			'cost' => 12,
 			];
 
+			$clave_hash = password_hash($contraseña, PASSWORD_BCRYPT, $opciones);
+
 			$this->query = "
 			INSERT INTO usuario
-			VALUES (NULL,'$user','$contraseña','$correo','$rol','$nom_empleado')";
+			VALUES (NULL,'$user','$clave_hash ','$correo','$rol','$nom_empleado')";
 
 			$resultado = $this->ejecutar_query_simple();
 
