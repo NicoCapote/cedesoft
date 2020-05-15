@@ -5,7 +5,7 @@ SI ACA SE LLAMA CIUDADES EN funciones_ciudades DEBE IR TAMBINE DONDE SE VE ALGO 
 $(#ciudades) IGUAL QUE PARA TODO EL TRABAJO!-->
 
 	<button class="btn btn-primary mb-4" id="nuevo">Nuevo</button>
-	<a href="pdf.php" target="_blank" class="btn btn-info mb-4" id="pdf">Lista de Ciudades</a>
+	<a href="fpdf/informe.php" target="_blank" class="btn btn-info mb-4" id="pdf">Lista de Ciudades</a>
 
 	<table id="tabla" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
 		<thead>
