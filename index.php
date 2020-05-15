@@ -2,7 +2,7 @@
 <!--NAVEGADOR SUPERIOR-->
 <!------------------------------------------------------------------------->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <img src="../img/logo.jpg" alt="CECESOFT" height="38" width="" style="box-align: left">
+    <img src="../cedesoft/img/logo.jpg" alt="CECESOFT" height="38" width="" style="box-align: left">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -73,10 +73,10 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
-                            <a href="../cedesoft/php/administrar.php"><button type="button" class="btn btn-info">Administrar Contratos</button></a>
+                            <a href="#"><button type="button" class="btn btn-info">EMPRESAS Y SUCURSALES</button></a>
                         </div>
                         <div class="col">
-                            <button type="button" class="btn btn-info">Nuestra Historia</button>
+                            <a href="#"><button type="button" class="btn btn-info">Nuestra Historia</button></a>
                         </div>
                     </div>
                 </div>
