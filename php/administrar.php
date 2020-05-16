@@ -31,37 +31,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
         <div class="collapse navbar-collapse" id="navbarColor03">
             <div class="container">
                 <ul class="navbar-nav mr-auto">
-
-                    <li class="nav-item">
-                        <div class="container">
-                            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                                <button type="button" class="btn btn-info">Filtrar</button>
-                                <div class="btn-group" role="group">
-                                    <button id="btnGroupDrop3" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-                                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop3">
-                                        <a class="dropdown-item" href="#">Fecha de creacion</a>
-                                        <a class="dropdown-item" href="#">Area de Sistemas</a>
-                                        <a class="dropdown-item" href="#">Area de Contabilidad</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
                     <li>
-                        <div class="container">
-                            <ul class="pagination">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#">&laquo;</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">&raquo;</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <input id="buscador" class="form-control mr-sm-2" type="text" placeholder="Buscar... (ej. numero de referencia)">
-                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
                         <form class="form-inline my-2 my-lg-0">
                             <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
                             <script>
@@ -70,19 +40,14 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
                         </form>
                     </li>
                     <li>
-                    <li>
                         <form class="form-inline" method="POST" action="./loginn/logout.php">
                             <input class="btn btn-danger my-2 my-sm-0" type="submit" value="cerrar sesion" id="CerrarSesion" name="CerrarSesion">
                         </form>
-                    </li>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <!------------------------------------------------------------------------->
-    <!--SIDE NAVI-->
-    <!------------------------------------------------------------------------->
     <!------------------------------------------------------------------------->
     <!--TABLE-->
     <!------------------------------------------------------------------------->
@@ -111,7 +76,6 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
                 </div>
             </div>
         </div>
-
     </div>
 
     <script src="../js/funciones.js"></script>
@@ -127,12 +91,5 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
         $(document).ready(Iniciar);
     </script>
     <!------------------------------------------------------------------------->
-    
-    
-    
 </body>
-
 </html>
-<!------------------------------------------------------------------------->
-<!--NAVI-->
-<!------------------------------------------------------------------------->

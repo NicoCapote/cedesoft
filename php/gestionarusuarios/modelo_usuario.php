@@ -90,12 +90,6 @@ require_once('../modelo.php');
             $contraseña = utf8_decode($contraseña);
             $correo = utf8_decode($correo);
 
-			$opciones = [
-    			'cost' => 12,
-			];
-
-			$clave_hash = password_hash($contraseña, PASSWORD_BCRYPT, $opciones);
-
 			$this->query = "
 			INSERT INTO usuario
 			VALUES (NULL,'$user','$clave_hash ','$correo','$rol','$nom_empleado')";

@@ -26,7 +26,7 @@ if ($login->getUsuario() == $usuario && password_verify($clave, $login->getClave
 			header('location: ../administrar.php');
 			break;
 		case 'visitante':
-			header('location: ../administrar.php');
+			header('location: ../visitante.php');
 			break;
 		case 'empleado':
 			header('location: ../empleado.php');
@@ -37,7 +37,7 @@ if ($login->getUsuario() == $usuario && password_verify($clave, $login->getClave
 		case 'jefe_de_procesos':
 			header('location: ../proceso.php');
 			break;
-		case 'sucursal':
+		case 'sucursales':
 			header('location: ../sucursal.php');
 			break;
 	}

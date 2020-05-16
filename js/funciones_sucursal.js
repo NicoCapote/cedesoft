@@ -1,6 +1,6 @@
 var dt;
 
-function proveedor() {
+function sucursal() {
 
 
     $('#contenido').on('click', 'a.borrar', function () {
@@ -315,6 +315,6 @@ $(document).ready(() => {
 
     });
 
-    proveedor();
+    sucursal();
 
 })
