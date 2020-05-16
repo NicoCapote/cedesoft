@@ -3,7 +3,7 @@
 <div id="proceso">
 
 	<button class="btn btn-primary mb-4" id="nuevo">Nuevo</button>
-	<a href="./pdf/empleado_pdf.php" target="_blank" class="btn btn-info mb-4" id="pdf">Lista de Procesos</a>
+	<a href="./fpdf/procesos_informe.php" target="_blank" class="btn btn-info mb-4" id="pdf">Lista de Procesos</a>
 
 	<table id="tabla" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
 		<thead>
