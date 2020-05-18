@@ -1,10 +1,5 @@
 var dt;
 
-function empresas() 
-{
-
-}
-
 $(document).ready(() => {
 
     $('#contenido').off('click', 'button#nuevo');
@@ -16,17 +11,17 @@ $(document).ready(() => {
 
     dt = $('#tabla').DataTable({
 
-        'ajax': './empresas/controlador_empresas.php/?accion=listar',
+        'ajax': './fechas/controladorFechas.php/?accion=listar',
         'columns': [
-            { 'data': 'id' },
-            { 'data': 'nombre_empresa' },
-            { 'data': 'no_nit' },
-            { 'data': 'id_pais' },
-            { 'data': 'descripcion' },
+            { 'data': 'id_contrato' },
+            { 'data': 'id_proceso' },
+            { 'data': 'tipo_contrato' },
+            { 'data': 'id_empleado' },
+            { 'data': 'id_empresa' },
+            { 'data': 'fecha_crear' },
+            { 'data': 'fecha_fin' },
         ]
 
     });
-
-    empresas();
 
 })
