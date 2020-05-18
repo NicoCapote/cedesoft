@@ -3,7 +3,7 @@
 <div id="contratos">
 
 	<button class="btn btn-primary mb-4" id="nuevo">Nuevo</button>
-	<a href="./fpdf/contrato_informe.php" target="_blank" class="btn btn-info mb-4" id="pdf">Lista de Empleados</a>
+	<a href="./fpdf/contrato_informe.php" target="_blank" class="btn btn-info mb-4" id="pdf">Lista de Contratos</a>
 
 	<table id="tabla" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
 		<thead>
