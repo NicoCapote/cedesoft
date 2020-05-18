@@ -12,7 +12,7 @@ $clave = $_POST['clave'];
 $login = new Login();
 $login->consultar($usuario);
 
-if ($login->getUsuario() == $usuario && $clave == $login->getClave()) {
+if ($login->getUsuario() == $usuario && $clave==$login->getClave()) {
 
 	$rol = $login->getRol();
 
