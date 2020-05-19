@@ -65,7 +65,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
                     <li><a href="../php/gestiociudades/index.php"><i class="fas fa-city"></i>Ciudad</a></li>
                     <li><a href="../php/proveedores/index.php"><i class="fas fa-people-carry"></i>Proveedor</a></li>
                     <li><a href="../php/gestionprocesos/index.php"><i class="fas fa-cogs"></i>Procesos</a></li>
-                    <li><a href="../php/fechas/index.php"><i class="fas fa-cogs"></i>Contratos por Finalizar</a></li>
+                    <li><a href="../php/fechas/index.php"><i class="fas fa-hourglass-half"></i>Contratos por Finalizar</a></li>
                 </ul>
             </div>
         </div>
