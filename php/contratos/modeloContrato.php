@@ -91,7 +91,7 @@ require_once('../modelo.php');
 
 			$this->query = "
 			INSERT INTO contrato
-			VALUES (NULL,'$proceso','$tipo_contrato','$empleado_responsable','$empresa_perteneciente','$fecha_creacion','$fecha_expiracion')";
+			VALUES (NULL,'$tipo_contrato','$proceso','$empleado_responsable','$empresa_perteneciente','$fecha_creacion','$fecha_expiracion')";
 
 			$resultado = $this->ejecutar_query_simple();
 
