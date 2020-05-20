@@ -11,7 +11,7 @@
                 </div>
                 <div class="form-group">
                     <label for="apellido">Usuario</label>
-                    <select class="form-control" name="user" id="user"></select>                    
+                    <input type="text" class="form-control" id="user" name="user">                  
                 </div>
                 <div class="form-group">
                     <label for="nombre">Contraseña</label>

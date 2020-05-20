@@ -87,7 +87,7 @@ require_once('../modelo.php');
 			}
 
             $user = utf8_decode($user);
-            $contraseña = utf8_decode($contraseña);
+            $clave_hash = utf8_decode($contraseña);
             $correo = utf8_decode($correo);
 
 			$this->query = "
@@ -107,13 +107,13 @@ require_once('../modelo.php');
 			}
 
             $user = utf8_decode($user);
-            $contraseña = utf8_decode($contraseña);
+            $clave_hash = utf8_decode($contraseña);
             $correo = utf8_decode($correo);
 
 			$this->query = "
 			UPDATE usuario
-            SET usuario='$user', password='$contraseña', correo='$correo', id_rol='$rol', id_empleado='$nom_empleado',
-            WHERE id_usuario = $id
+            SET usuario='$user', password='$clave_hash', correo='$correo', id_rol='$rol', id_empleado='$nom_empleado',
+            WHERE id_usuario = '$id';
 			";
 
 			$resultado = $this->ejecutar_query_simple();

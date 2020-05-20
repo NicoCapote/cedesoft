@@ -185,7 +185,7 @@ function usuarios()
         $.ajax({
 
             type: 'get',
-            url: './empleados/controladorEmpledos.php',
+            url: './empleados/controladorEmpleados.php',
             data: { accion: 'listar' },
             dataType: 'json'
 
