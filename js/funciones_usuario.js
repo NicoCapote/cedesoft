@@ -150,7 +150,7 @@ function usuarios()
 
                 $('#id').val(e.id);
                 $('#user').val(e.user);
-                $('#password').val(e.contraseña);
+                $('#password').val(e.password);
                 $('#correo').val(e.correo);
                 id_rol=e.id_rol
                 id_empleado=e.id_empleado
