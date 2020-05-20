@@ -148,7 +148,7 @@ require_once('../modelo.php');
             ";*/
 
             $this->query = "
-            SELECT * FROM contrato WHERE DATEDIFF(fecha_fin,CURDATE()) = 10;
+            SELECT * FROM contrato WHERE DATEDIFF(fecha_fin,CURDATE()) <= 10;
             ";
 
             $this->obtener_resultados_query();
