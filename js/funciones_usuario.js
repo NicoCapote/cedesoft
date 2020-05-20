@@ -172,11 +172,11 @@ function usuarios()
 
                 if (sucursal === value.id) {
 
-                    $('#rol').append('<option selected value="' + value.id + '">' + value.rol + "</option>")
+                    $('#rol').append('<option selected value="' + value.id + '">' + value.nom_rol + "</option>")
 
                 } else {
 
-                    $('#rol').append('<option value="' + value.id + '">' + value.rol + "</option>")
+                    $('#rol').append('<option value="' + value.id + '">' + value.nom_rol + "</option>")
                 }
             });
 
@@ -185,7 +185,7 @@ function usuarios()
         $.ajax({
 
             type: 'get',
-            url: './empleados/controladorEmpledos.php',
+            url: './empleados/controladorEmpleados.php',
             data: { accion: 'listar' },
             dataType: 'json'
 
