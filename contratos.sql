@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-05-2020 a las 18:12:35
+-- Tiempo de generación: 20-05-2020 a las 19:06:13
 -- Versión del servidor: 10.1.19-MariaDB
 -- Versión de PHP: 5.6.28
 
@@ -61,9 +61,7 @@ CREATE TABLE `contrato` (
 --
 
 INSERT INTO `contrato` (`id_contrato`, `id_proceso`, `tipo_contrato`, `id_empleado`, `id_empresa`, `fecha_crear`, `fecha_fin`) VALUES
-(1, 1, 'contrato importacion', 2, 1, '2020-05-25 00:00:00', '2020-05-28 00:00:00'),
-(2, 2, 'contrato provee. insumo', 2, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(43, 5, 'Aprendiz', 2, 2, '2020-05-12 00:00:00', '2020-05-27 00:00:00');
+(1, 1, 'contrato importacion', 2, 1, '2020-05-25 00:00:00', '2020-05-28 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -194,8 +192,6 @@ CREATE TABLE `proveedor` (
 
 INSERT INTO `proveedor` (`id_proveedor`, `nit_proveedor`, `nom_proveedor`, `desc_proveedor`, `id_contrato`) VALUES
 (1, 11111111, 'interneteeee', 'proveedor a cargo de RED', 1),
-(2, 987654321, 'papeleria', 'proveedor a cargo de papeleria ', 2),
-(3, 1234567890, 'sdfgh', 'sdfgh', 2),
 (4, 234234, 'asdasda', 'asdas', 1);
 
 -- --------------------------------------------------------
@@ -413,7 +409,7 @@ ALTER TABLE `usuario`
 -- Filtros para la tabla `ciudad`
 --
 ALTER TABLE `ciudad`
-  ADD CONSTRAINT `ciudad_ibfk_1` FOREIGN KEY (`id_pais`) REFERENCES `pais` (`id_pais`);
+  ADD CONSTRAINT `ciudad_ibfk_1` FOREIGN KEY (`id_pais`) REFERENCES `pais` (`id_pais`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `contratoxproceso`
@@ -433,13 +429,13 @@ ALTER TABLE `empleado`
 -- Filtros para la tabla `empresa`
 --
 ALTER TABLE `empresa`
-  ADD CONSTRAINT `empresa_ibfk_1` FOREIGN KEY (`id_pais`) REFERENCES `pais` (`id_pais`);
+  ADD CONSTRAINT `empresa_ibfk_1` FOREIGN KEY (`id_pais`) REFERENCES `pais` (`id_pais`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `proveedor`
 --
 ALTER TABLE `proveedor`
-  ADD CONSTRAINT `proveedor_ibfk_1` FOREIGN KEY (`id_contrato`) REFERENCES `contrato` (`id_contrato`);
+  ADD CONSTRAINT `proveedor_ibfk_1` FOREIGN KEY (`id_contrato`) REFERENCES `contrato` (`id_contrato`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `sucursal`
@@ -452,7 +448,7 @@ ALTER TABLE `sucursal`
 -- Filtros para la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`id_rol`) REFERENCES `rol` (`id_rol`);
+  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`id_rol`) REFERENCES `rol` (`id_rol`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
