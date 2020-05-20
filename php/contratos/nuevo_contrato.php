@@ -42,7 +42,7 @@
 		$("#f-contrato").validate({
 			rules: {
                 proceso: "required" ,
-                tipo: "required" ,
+                tipo_contrato: "required" ,
                 nom_empleado: "required",
                 nombre_empresa: "required",
                 fecha_creacion: "required",
