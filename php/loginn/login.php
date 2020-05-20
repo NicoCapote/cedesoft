@@ -13,9 +13,7 @@ $login = new Login();
 $login->consultar($usuario);
 
 if ($login->getUsuario() == $usuario && $clave==$login->getClave()) {
-
 	$rol = $login->getRol();
-
 	session_start();
 
 	$_SESSION['id'] = $login->getId();
@@ -31,7 +29,7 @@ if ($login->getUsuario() == $usuario && $clave==$login->getClave()) {
 		case 'empleado':
 			header('location: ../empleado.php');
 			break;
-		case 'gestor_de_empresa':
+		case 'gestor_de_empresas':
 			header('location: ../empresa.php');
 			break;
 		case 'jefe_de_procesos':

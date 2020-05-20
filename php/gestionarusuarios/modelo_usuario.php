@@ -87,7 +87,7 @@ require_once('../modelo.php');
 			}
 
             $user = utf8_decode($user);
-            $clave_hash = utf8_decode($contraseña);
+            $clave_hash = utf8_decode($password);
             $correo = utf8_decode($correo);
 
 			$this->query = "
