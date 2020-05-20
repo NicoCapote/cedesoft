@@ -5,7 +5,7 @@ require_once('../modelo.php');
 	class Usuario extends modelo {
 		private $id;
         private $user;
-        private $contraseña;
+        private $password;
         private $correo;
         private $rol;
         private $nom_empleado;
@@ -26,7 +26,7 @@ require_once('../modelo.php');
 
         public function getContraseña()
         {
-                return $this->contraseña;
+                return $this->password;
         }
 
         public function getCorreo()
@@ -49,7 +49,7 @@ require_once('../modelo.php');
 			if ($id != '') {
 
 				$this->query = "
-                SELECT id_usuario AS id, usuario as user, password as contraseña, 
+                SELECT id_usuario AS id, usuario as user, password, 
                 correo as correo, id_rol as rol, id_empleado as nom_empleado
 				FROM usuario WHERE id_usuario='$id'
 				";

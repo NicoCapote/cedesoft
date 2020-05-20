@@ -75,7 +75,7 @@
 				$json = array(
 					'id' => $usuario->getId(),
 					'user' => $usuario->getUser(),
-					'contraseña' => $usuario->getContraseña(),
+					'password' => $usuario->getContraseña(),
 					'correo' => $usuario->getCorreo(),
 					'rol' => $usuario->getRol(),
 					'nom_empleado' => $usuario->getNom_empleado(),

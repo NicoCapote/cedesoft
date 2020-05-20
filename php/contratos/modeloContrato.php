@@ -144,7 +144,7 @@ require_once('../modelo.php');
             FROM contrato as s
             INNER JOIN empleado as a on s.id_empleado = a.id_empleado
             INNER JOIN empresa  as b on s.id_empresa  = b.id_empresa
-            INNER JOIN procesos  as c on s.id_empresa  = c.id_proceso;
+            INNER JOIN procesos  as c on s.id_proceso  = c.id_proceso;
             ";
 
             $this->obtener_resultados_query();

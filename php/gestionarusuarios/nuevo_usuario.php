@@ -11,7 +11,7 @@
                 </div>
                 <div class="form-group">
                     <label for="nombre">Contraseña</label>
-                    <input type="password" class="form-control" id="contraseña" name="contraseña">
+                    <input type="password" class="form-control" id="password" name="password">
                 </div>
                 <div class="form-group">
                     <label for="nombre">Correo</label>
@@ -38,7 +38,7 @@
 		$("#f-usuarios").validate({
 			rules: {
                 user: "required" ,
-                contraseña: "required" ,
+                password: "required" ,
                 correo: "required",
                 rol: "required",
                 nom_empleado: "required",
@@ -47,7 +47,7 @@
                 user: {
 					required: "obligatorio"
                 },
-				contraseña: {
+				password: {
 					required: "obligatorio"
                 },
                 correo: {

@@ -150,10 +150,10 @@ function usuarios()
 
                 $('#id').val(e.id);
                 $('#user').val(e.user);
-                $('#contraseña').val(e.contraseña);
+                $('#password').val(e.contraseña);
                 $('#correo').val(e.correo);
-                $('#rol').val(e.rol);
-                $('#nom_empleado').val(e.nom_empleado);
+                id_rol=e.id_rol
+                id_empleado=e.id_empleado
             }
 
         });
@@ -172,11 +172,11 @@ function usuarios()
 
                 if (sucursal === value.id) {
 
-                    $('#rol').append('<option selected value="' + value.id + '">' + value.rol + "</option>")
+                    $('#rol').append('<option selected value="' + value.id + '">' + value.nom_rol + "</option>")
 
                 } else {
 
-                    $('#rol').append('<option value="' + value.id + '">' + value.rol + "</option>")
+                    $('#rol').append('<option value="' + value.id + '">' + value.nom_rol + "</option>")
                 }
             });
 
