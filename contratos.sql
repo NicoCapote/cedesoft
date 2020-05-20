@@ -191,8 +191,19 @@ CREATE TABLE `proveedor` (
 --
 
 INSERT INTO `proveedor` (`id_proveedor`, `nit_proveedor`, `nom_proveedor`, `desc_proveedor`, `id_contrato`) VALUES
+<<<<<<< HEAD
 (1, 11111111, 'interneteeee', 'proveedor a cargo de RED', 1),
 (4, 234234, 'asdasda', 'asdas', 1);
+=======
+HEAD
+(1, 11111111, 'interneteeee', 'proveedor a cargo de RED', 1),
+(4, 234234, 'asdasda', 'asdas', 1);
+=======
+(1, 1234567890, 'internet', 'proveedor a cargo de RED', 2),
+(2, 987654321, 'papeleria', 'proveedor a cargo de papeleria ', 2),
+(3, 123456789, 'Los negros del ataud', 'Te bailan si no te ciudas', 36),
+(10, 123456789, 'cecep', 'Institucion', 34);
+>>>>>>> bd
 
 -- --------------------------------------------------------
 
