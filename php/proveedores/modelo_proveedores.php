@@ -59,7 +59,7 @@ require_once('../modelo.php');
 			if ($id != '') {
 
 				$this->query = "
-				SELECT id_proveedor AS id, nit_proveedor AS no_nit nom_proveedor AS nom_proveedor, 
+				SELECT id_proveedor AS id, nit_proveedor AS no_nit, nom_proveedor AS nom_proveedor, 
 				desc_proveedor AS desc_proveedor, id_contrato AS id_contrato
 				FROM proveedor WHERe id_proveedor='$id'
 				";
@@ -131,9 +131,9 @@ require_once('../modelo.php');
 
 			$this->query = "
 			UPDATE proveedor
-			SET nit_proveedor='$no_nit' nom_proveedor='$nom_proveedor', desc_proveedor='$desc_proveedor', 
+			SET nit_proveedor='$no_nit', nom_proveedor='$nom_proveedor', desc_proveedor='$desc_proveedor', 
 			id_contrato='$id_contrato'
-            WHERE id_proveedor = $id
+            WHERE id_proveedor = '$id'
 			";
 
 			$resultado = $this->ejecutar_query_simple();

@@ -15,7 +15,7 @@
                 </div>
                 <div class="form-group">
                     <label for="nombre">NIT</label>
-                    <input type="text" class="form-control" id="no_nit" name="nom_proveedor">
+                    <input type="text" class="form-control" id="no_nit" name="no_nit">
                 </div>
                 <div class="form-group">
                     <label for="descripcion">Descripcion</label>
