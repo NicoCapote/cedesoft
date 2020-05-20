@@ -32,7 +32,7 @@
         </div>
     </div>
     <script>
-		$("#f-sucursal").validate({
+		$("#f-proveedor").validate({
 			rules: {
                 nom_proveedor: "required" ,
                 no_nit: "required" ,
