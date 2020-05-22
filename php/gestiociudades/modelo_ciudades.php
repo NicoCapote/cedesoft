@@ -3,7 +3,7 @@
 require_once('../modelo.php');
 	class Ciudades extends modelo {
 		private $id;
-        private $nombre;
+		private $nom_ciudad;
         private $id_pais;
 
 		
@@ -24,7 +24,7 @@ require_once('../modelo.php');
          */ 
         public function getNom_ciudad()
         {
-                return $this->nombre;
+                return $this->nom_ciudad;
         }
 
         /**
@@ -102,11 +102,9 @@ require_once('../modelo.php');
             $nom_ciudad = utf8_decode($nom_ciudad);
             $id_pais = utf8_decode($id_pais);
 
-
-
 			$this->query = "
 			UPDATE ciudad
-            SET nom_ciuda='$nom_ciudad', id_pais='$id_pais'
+            SET nom_ciudad='$nom_ciudad', id_pais='$id_pais'
             WHERE id_ciudad = $id
 			";
 
