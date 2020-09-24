@@ -1,4 +1,4 @@
-var dt;
+var dt;//hola
 
 function contratos()
 {
